@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=IBM+Plex+Serif:wght@400;600;700&display=swap');
+:root{
+  --main:rgb(241,210,6);
+  --boxShadow: 0 0 10px 0 rgba(0,0,0,0,4);
+  --Heading:"IBM Plex Serif",serif;
+}
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  font-family:"Cinzel Decorative",serif;
+  font-weight:800;
+}
+::selection{
+  background:var(--main);
+  color:#fff;
+}
+::-webkit-scrollbar{
+  width: 4px;
+}
+::-webkit-scrollbar-track{
+  background:#000;
+}
+::-webkit-scrollbar-thumb{
+  background:var(--main);
+}

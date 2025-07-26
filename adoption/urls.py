@@ -5,10 +5,11 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
-    path('pets/', views.pet_list, name='pet_list'),
+    path('pets/', views.view_pets, name='view_pets'),
     path('logout/', views.logout_view, name='logout'),
     path('add-pet/', views.add_pet, name='add_pet'),
 ]
+
 
 
 

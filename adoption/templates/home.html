@@ -1,10 +1,91 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head><title>Home</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 30px;
+            font-size: 2.5rem;
+            color: rgb(61, 42, 229);
+        }
+        .banner img {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+        .buttons a {
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .buttons a:hover {
+            background-color: #45a049;
+        }
+        .info-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: #fff;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.info-section div {
+    width: 30%;
+    padding: 10px;
+    text-align: left;
+}
+
+.info-section h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
 <body>
     <h1>Welcome to Pet Adoption</h1>
-    <a href="{% url 'register' %}">Register</a> |
-    <a href="{% url 'login' %}">Login</a> |
-    <a href="{% url 'pet_list' %}">View Pets</a>
+    <div class="banner">
+        <img src="{% static 'images/home-icon.jpg' %}" alt="Pet Banner">
+    </div>
+    <div class="buttons">
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'view_pets' %}">View Pets</a>
+    </div>
+    <div class="info-section">
+    <div class="about">
+        <h2>About Us</h2>
+        <p>We help connect loving homes with pets that need them. Our mission is to ensure every pet finds a safe and caring home.</p>
+    </div>
+
+    <div class="why-adopt">
+        <h2>Why Adopt?</h2>
+        <p>By adopting, you save lives and give abandoned pets a second chance. Adoption is also more affordable and ethical.</p>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p>If you wish to adopt a pet, call us at <b>+91-9876543210</b> or email <b>adopt@pets.com</b>.</p>
+    </div>
+</div>
+
 </body>
 </html>

@@ -57,3 +57,23 @@ def add_pet(request):
     else:
         form = PetForm()
     return render(request, 'add_pet.html', {'form': form})
+
+from django.shortcuts import render
+from .models import Pet
+
+def view_pets(request):
+    species_filter = request.GET.get('species')  # Get species from query string
+    if species_filter:
+        pets = Pet.objects.filter(species__iexact=species_filter)
+    else:
+        pets = Pet.objects.all()
+
+    return render(request, 'view_pets.html', {'pets': pets})
+
+
+
+from django.shortcuts import render
+from .models import Pet
+
+
+

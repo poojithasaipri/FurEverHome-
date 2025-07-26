@@ -1,26 +1,70 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{% static 'images/loginreg.png' %}") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #d32f2f;
+        }
+        .link {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h1>User Registration</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label>Username:</label><br>
-        <input type="text" name="username" required><br><br>
-
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
-
-        <button type="submit">Register</button>
-    </form>
-
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    {% if success %}
-        <p style="color: green;">{{ success }}</p>
-    {% endif %}
+    <div class="register-container">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password1" placeholder="Password" required>
+            <input type="password" name="password2" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <a class="link" href="{% url 'login' %}">Already have an account? Login</a>
+    </div>
 </body>
 </html>

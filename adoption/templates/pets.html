@@ -18,5 +18,17 @@
     {% else %}
         <p>No pets available right now.</p>
     {% endif %}
+
+    {% for pet in pets %}
+  <h3>{{ pet.name }} ({{ pet.species }})</h3>
+  <p>{{ pet.description }}</p>
+  {% if pet.image %}
+    <img src="{{ pet.image.url }}" alt="{{ pet.name }}" width="200">
+  {% endif %}
+{% endfor %}
+
 </body>
 </html>
+
+
+

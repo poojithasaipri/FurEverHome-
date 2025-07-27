@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Submitted</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        h1 { color: #4CAF50; }
+        a { color: #4CAF50; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Thank you!</h1>
+    <p>Your request to adopt <strong>{{ pet.name }}</strong> has been submitted. We’ll contact you soon.</p>
+    <p><a href="{% url 'view_pets' %}">Back to pets</a></p>
+</body>
+</html>

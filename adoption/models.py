@@ -1,7 +1,7 @@
-
-    
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 class Pet(models.Model):
     SPECIES_CHOICES = (
@@ -14,16 +14,20 @@ class Pet(models.Model):
     )
 
     name = models.CharField(max_length=100)
-    species = models.CharField(max_length=20, choices=SPECIES_CHOICES)
+    species = models.CharField(
+        max_length=20,
+        choices=SPECIES_CHOICES,
+        default='Dog'
+    )
     age = models.IntegerField()
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='pet_images/', blank=True, null=True)
 
-    # New fields
+    # Additional fields
     microchip_number = models.CharField(max_length=100, blank=True, null=True)
     vaccination_date = models.DateField(blank=True, null=True)
     is_adopted = models.BooleanField(default=False)
-    posted_on = models.DateTimeField(auto_now_add=True)
+    posted_on = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
@@ -54,5 +58,3 @@ class AdoptionRequest(models.Model):
 
     def __str__(self):
         return f"{self.full_name} -> {self.pet.name}"
-
-

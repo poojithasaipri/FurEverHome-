@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adopt {{ pet.name }}</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: 0 auto; padding: 20px; }
+        h1 { color: #4CAF50; }
+        form input, form textarea {
+            width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px;
+        }
+        button {
+            padding: 10px 20px; background: #4CAF50; color: #fff; border: 0; border-radius: 6px; cursor: pointer;
+        }
+        .already { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Adopt {{ pet.name }}</h1>
+
+    {% if already_adopted %}
+        <p class="already">Sorry, this pet is already adopted.</p>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Adoption Request</button>
+        </form>
+    {% endif %}
+</body>
+</html>

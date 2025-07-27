@@ -2,10 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Adoption</title>
     <style>
+    .site-logo {
+        position: fixed;
+       top: 15px;
+       left: 15px; /* Change to 'right:15px;' if you want it on the right side */
+       z-index: 1000;
+      }
+     .site-logo img {
+       width: 150px;
+       height: 150px;
+       border-radius:0;
+       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+         }
+
         body {
             text-align: center;
             font-family: Arial, sans-serif;
@@ -61,7 +75,11 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Pet Adoption</h1>
+    <h1>FurEver Home – A Loving Pet Adoption Center</h1>
+    <div class="site-logo">
+    <img src="{% static 'images/favicon.png' %}" alt="FurEver Home Logo">
+</div>
+
     <div class="banner">
         <img src="{% static 'images/home-icon.jpg' %}" alt="Pet Banner">
     </div>
@@ -83,7 +101,7 @@
 
     <div class="contact">
         <h2>Contact Us</h2>
-        <p>If you wish to adopt a pet, call us at <b>+91-9876543210</b> or email <b>adopt@pets.com</b>.</p>
+        <p>If you wish to adopt a pet, call us at <b>+91-9876543210</b> or email <b>FurEver@pets.com</b>.</p>
     </div>
 </div>
 

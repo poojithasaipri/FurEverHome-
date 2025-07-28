@@ -51,23 +51,7 @@ from django.contrib.auth import logout
 def logout_view(request):
     logout(request)
     return redirect('login')  # Redirect to login page after logout
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from .models import Pet
-from .forms import PetForm  # You must create PetForm in forms.py
-
-@login_required
-def add_pet(request):
-    if request.method == "POST":
-        form = PetForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('view_pets')
-    else:
-        form = PetForm()
-    return render(request, 'add_pet.html', {'form': form})
-
+    
 
 
 

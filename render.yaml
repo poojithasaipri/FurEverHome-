@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: petadoption
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn petadoption.wsgi:application"
+    plan: free
+    branch: main
+    healthCheckPath: "/"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8

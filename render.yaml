@@ -2,7 +2,6 @@ services:
   - type: web
     name: petadoption
     env: python
-    buildCommand: "./build.sh"
     startCommand: "gunicorn petadoption.wsgi:application"
     plan: free
     branch: main
